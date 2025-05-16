@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: wardrobe-ai
+  ai:
+    chat:
+      client:
+        enabled: false
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model:
+      embedding:
+        model: llama2
+wardrobeai:
+  embedding:
+    model: llama2
+    url: http://localhost:11434
