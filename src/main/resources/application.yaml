@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: wardrobe-ai
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  ai:
+    chat:
+      client:
+        enabled: false
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: llama3.1:8b-instruct-q4_K_M
+      embedding:
+        model: bge-m3:latest
+
+logging:
+  level:
+    org:
+      springframework:
+        ai:
+          chat:
+            client:
+              advisor:
+               SimpleLoggerAdvisor: debug
+
