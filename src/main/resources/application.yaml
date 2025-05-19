@@ -1,17 +1,33 @@
 spring:
   application:
     name: wardrobe-ai
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
   ai:
     chat:
       client:
         enabled: false
     ollama:
-      base-url: http://localhost:11434
+      base-url: http://61.50.110.46:11434
       chat:
-        model:
+        model: llama3.1:8b-instruct-q4_K_M
       embedding:
-        model: llama2
+        model: llama3.1:8b-instruct-q4_K_M
+
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        index-type: hnsw
+        distance-type: cosine_distance
+        dimensions: 1536
+        max-document-batch-size: 10000
+        schema-validation: true
+
+
 wardrobeai:
   embedding:
-    model: llama2
-    url: http://localhost:11434
+    model: llama3.1:8b-instruct-q4_K_M
+    url: http://61.50.110.46:11434

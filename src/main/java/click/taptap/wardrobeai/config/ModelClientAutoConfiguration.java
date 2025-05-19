@@ -1,6 +1,8 @@
 package click.taptap.wardrobeai.config;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
+import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -20,8 +22,10 @@ public class ModelClientAutoConfiguration {
 
 
     @Bean
-    public ChatClient chatClient(ChatModel chatModel) {
-        ChatClient chatClient = ChatClient.builder(chatModel).build();
+    public ChatClient chatClient(ChatModel chatModel, ChatMemory chatMemory) {
+        ChatClient chatClient = ChatClient.builder(chatModel)
+                .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
+                .build();
         return null;
     }
 }

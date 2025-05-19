@@ -15,18 +15,4 @@ public class WardrobeAiApplication {
         SpringApplication.run(WardrobeAiApplication.class, args);
     }
 
-
-    @Bean
-    public CommandLineRunner predefinedQuestions(ChatClient.Builder chatClientBuilder,
-            ConfigurableApplicationContext context) {
-
-        return args -> {
-
-            var chatClient = chatClientBuilder.build();
-            chatClient.prompt("What is the capital of France?").advisors((advisorSpec -> {
-            }));
-
-            context.close();
-        };
-    }
 }
