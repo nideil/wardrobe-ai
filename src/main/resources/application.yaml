@@ -15,19 +15,15 @@ spring:
       chat:
         model: llama3.1:8b-instruct-q4_K_M
       embedding:
-        model: llama3.1:8b-instruct-q4_K_M
+        model: bge-m3:latest
 
-    vectorstore:
-      pgvector:
-        initialize-schema: true
-        index-type: hnsw
-        distance-type: cosine_distance
-        dimensions: 1536
-        max-document-batch-size: 10000
-        schema-validation: true
+logging:
+  level:
+    org:
+      springframework:
+        ai:
+          chat:
+            client:
+              advisor:
+               SimpleLoggerAdvisor: debug
 
-
-wardrobeai:
-  embedding:
-    model: llama3.1:8b-instruct-q4_K_M
-    url: http://61.50.110.46:11434
