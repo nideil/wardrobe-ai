@@ -1,0 +1,35 @@
+CREATE EXTENSION IF NOT EXISTS vector;
+CREATE EXTENSION IF NOT EXISTS hstore;
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+----- clothing
+CREATE TABLE IF NOT EXISTS clothing (
+	id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+	content text,
+	metadata json,
+	embedding vector(1024)
+);
+
+CREATE INDEX ON clothing USING HNSW (embedding vector_cosine_ops);
+
+
+----- user_preference
+CREATE TABLE IF NOT EXISTS user_preference (
+	id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+	content text,
+	metadata json,
+	embedding vector(1024)
+);
+
+CREATE INDEX ON user_preference USING HNSW (embedding vector_cosine_ops);
+
+----- outfit_template
+CREATE TABLE IF NOT EXISTS outfit_template (
+	id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+	content text,
+	metadata json,
+	embedding vector(1024)
+);
+
+CREATE INDEX ON outfit_template USING HNSW (embedding vector_cosine_ops);
+
