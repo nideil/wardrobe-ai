@@ -1,5 +1,6 @@
 package click.taptap.wardrobeai.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
@@ -12,18 +13,17 @@ import java.util.List;
  * @author Nideil
  */
 @Service
+@RequiredArgsConstructor
 public class ClothingService {
-    @Autowired
-    private VectorStore clothingVectorStore;
+    private final VectorStore clothingVectorStore;
 
     /**
      * Search for similar clothing by description text
      * @param description description text
      */
-    public void search(String description) {
+    public List<Document> search(String description) {
         SearchRequest searchRequest = SearchRequest.builder().query(description).topK(3).build();
-        List<Document> documents = clothingVectorStore.similaritySearch(searchRequest);
-
+        return clothingVectorStore.similaritySearch(searchRequest);
     }
 
     /**

@@ -12,12 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Nideil
  */
 @Configuration
-// @EnableConfigurationProperties({ModelClientConfiguration.EmbeddingProperties.class, ModelClientConfiguration.ChatProperties.class})
 public class ModelClientConfiguration {
-    // @ConfigurationProperties(prefix = "wardrobeai.embedding")
-    // public record EmbeddingProperties(String model, String url) {}
-    // @ConfigurationProperties(prefix = "wardrobeai.chat")
-    // public record ChatProperties(String model, String url) {}
 
 
     @Bean

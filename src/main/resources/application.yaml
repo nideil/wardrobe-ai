@@ -11,7 +11,7 @@ spring:
       client:
         enabled: false
     ollama:
-      base-url: http://61.50.110.46:11434
+      base-url: http://localhost:11434
       chat:
         model: llama3.1:8b-instruct-q4_K_M
       embedding:

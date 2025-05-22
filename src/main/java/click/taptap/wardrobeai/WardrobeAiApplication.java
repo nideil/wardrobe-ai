@@ -21,19 +21,4 @@ public class WardrobeAiApplication {
         SpringApplication.run(WardrobeAiApplication.class, args);
     }
 
-    @Bean
-    public CommandLineRunner predefinedQuestions(VectorStore userPreferenceVectorStore, ChatClient chatClient,
-            ConfigurableApplicationContext context) {
-
-        return args -> {
-
-
-            // List<Document> rocket = userPreferenceVectorStore.similaritySearch(
-            //         SearchRequest.builder().query("rocket").filterExpression("meta1 == 'meta1'").topK(3).build());
-            //
-            // rocket.forEach(item -> System.out.println("rag context: " + item.getFormattedContent()));
-
-            context.close();
-        };
-    }
 }
