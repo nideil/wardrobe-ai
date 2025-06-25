@@ -16,6 +16,11 @@ spring:
         model: llama3.1:8b-instruct-q4_K_M
       embedding:
         model: bge-m3:latest
+      init:
+        embedding:
+          additional-models:
+            - bge-m3:latest
+            -
 
 logging:
   level:
