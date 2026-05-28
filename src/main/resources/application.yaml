@@ -20,7 +20,6 @@ spring:
         embedding:
           additional-models:
             - bge-m3:latest
-            -
 
 logging:
   level:
